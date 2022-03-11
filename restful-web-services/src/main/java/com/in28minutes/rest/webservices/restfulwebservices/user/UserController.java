@@ -9,7 +9,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-public class UserResource {
+public class UserController {
 
     @Autowired
     private UserDaoService service;
@@ -42,5 +42,11 @@ public class UserResource {
                 .buildAndExpand(savedUser.getId()).toUri();
 
         return ResponseEntity.created(location).build();
+    }
+
+    @DeleteMapping(path = "/users/{id}")
+    public String deleteUser(@PathVariable int id) {
+        String result = service.delete(id);
+        return result;
     }
 }
