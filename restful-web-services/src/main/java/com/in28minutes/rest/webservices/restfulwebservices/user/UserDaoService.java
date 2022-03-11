@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 // Manage by Spring
@@ -45,14 +46,16 @@ public class UserDaoService {
         return null;
     }
 
-    public String delete(int id) {
-        for(User user : users) {
+    public User deleteById(int id) {
+        Iterator<User> iterator = users.iterator();
+        while (iterator.hasNext()) {
+            User user = iterator.next();
             if(user.getId() == id) {
-                users.remove(user);
-                return "Deleted user id : " + id;
+                iterator.remove();
+                return user;
             }
         }
-        return "Not found user id : " + id;
+        return null;
     }
 
 }
