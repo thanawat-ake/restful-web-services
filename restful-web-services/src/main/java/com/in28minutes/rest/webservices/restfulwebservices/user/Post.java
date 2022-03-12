@@ -3,6 +3,7 @@ package com.in28minutes.rest.webservices.restfulwebservices.user;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Post {
@@ -11,6 +12,7 @@ public class Post {
     @GeneratedValue
     private Integer id;
 
+    @Size(min=1)
     private String description;
 
     @ManyToOne(fetch= FetchType.LAZY)
