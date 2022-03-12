@@ -20,9 +20,9 @@ public class UserDaoService {
         posts.add(new Post(1,"I am happy today."));
         posts.add(new Post(2,"Today is my birthday."));
         posts.add(new Post(3,"Tomorrow is Saturday."));
-        users.add(new User(1, "Adam", new Date(), posts));
-        users.add(new User(2, "Eve", new Date(), posts));
-        users.add(new User(3, "Jack", new Date(), posts));
+        users.add(new User(1, "Adam", new Date()));
+        users.add(new User(2, "Eve", new Date()));
+        users.add(new User(3, "Jack", new Date()));
     }
 
     public List<User> findAll() {

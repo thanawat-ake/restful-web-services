@@ -15,36 +15,36 @@ public class PostDaoService {
     @Autowired
     private UserDaoService userDaoService;
 
-    public List<Post> findPostsForUser(int id) {
-        User user = userDaoService.findOne(id);
-        return user.getPosts();
-    }
-
-    public Post save(int userId, Post post){
-        User user = userDaoService.findOne(userId);
-        if(user != null) {
-            List<Post> posts = null;
-            if(post.getId() == null) {
-                posts = user.getPosts();
-                post.setId(posts.size() + 1);
-            }
-            posts.add(post);
-            user.setPosts(posts);
-            return post;
-        }
-        return null;
-    }
-
-    public Post findPostForUser(int userId, int postId) {
-        User user = userDaoService.findOne(userId);
-        if(user != null) {
-            for(Post post : user.getPosts()) {
-                if(post.getId() == postId){
-                    return post;
-                }
-            }
-        }
-        return null;
-    }
+//    public List<Post> findPostsForUser(int id) {
+//        User user = userDaoService.findOne(id);
+//        return user.getPosts();
+//    }
+//
+//    public Post save(int userId, Post post){
+//        User user = userDaoService.findOne(userId);
+//        if(user != null) {
+//            List<Post> posts = null;
+//            if(post.getId() == null) {
+//                posts = user.getPosts();
+//                post.setId(posts.size() + 1);
+//            }
+//            posts.add(post);
+//            user.setPosts(posts);
+//            return post;
+//        }
+//        return null;
+//    }
+//
+//    public Post findPostForUser(int userId, int postId) {
+//        User user = userDaoService.findOne(userId);
+//        if(user != null) {
+//            for(Post post : user.getPosts()) {
+//                if(post.getId() == postId){
+//                    return post;
+//                }
+//            }
+//        }
+//        return null;
+//    }
 
 }
